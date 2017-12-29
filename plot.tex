@@ -1,0 +1,21 @@
+\begin{figure}
+	
+	\begin{tikzpicture}[scale=1.5]
+	\begin{axis}[accuracy]
+	\accplot{plot_data/cnn_batch_size_processed/32.csv}; 
+	\accplot{plot_data/cnn_batch_size_processed/64.csv};
+	\accplot{plot_data/cnn_batch_size_processed/128.csv};
+	\accplot{plot_data/cnn_batch_size_processed/4096.csv};
+	
+	\addlegendentry{$batch = 32$}
+	\addlegendentry{$batch = 64$}
+	\addlegendentry{$batch = 128$}
+	\addlegendentry{$batch = 4096$}
+	
+	\end{axis}
+	
+	\end{tikzpicture}
+	\caption{caption}
+	\label{fig:cnn_batch_size}
+	
+\end{figure}

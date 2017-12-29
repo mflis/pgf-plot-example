@@ -1,0 +1,42 @@
+% inspiration: https://github.com/tensorflow/tensorflow/issues/9024
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\definecolor{tb_color_1}{RGB}{31, 119, 180}
+\definecolor{tb_color_2}{RGB}{255, 127, 14}
+\definecolor{tb_color_3}{RGB}{44, 160, 44}
+\definecolor{tb_color_4}{RGB}{214, 39, 40}
+\definecolor{tb_color_5}{RGB}{148, 103, 189}
+\definecolor{tb_color_6}{RGB}{140, 86, 75}
+
+%more colors from http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colors.html
+%[(31, 119, 180), (174, 199, 232), (255, 127, 14), (255, 187, 120),    
+%(44, 160, 44), (152, 223, 138), (214, 39, 40), (255, 152, 150),    
+%(148, 103, 189), (197, 176, 213), (140, 86, 75), (196, 156, 148),    
+%(227, 119, 194), (247, 182, 210), (127, 127, 127), (199, 199, 199),    
+%(188, 189, 34), (219, 219, 141), (23, 190, 207), (158, 218, 229)]    
+
+
+
+\pgfplotscreateplotcyclelist{tb}{
+	semithick,tb_color_1\\%
+	semithick,tb_color_2\\%
+	semithick,tb_color_3\\%
+	semithick,tb_color_4\\%
+	semithick,tb_color_5\\%
+	semithick,tb_color_6\\%
+}
+
+\pgfplotsset{accuracy/.style={
+	cycle list name=tb, 
+	grid=both,
+	grid style={solid,gray!30!white},
+	axis lines=middle,
+	xlabel={epoch},
+	ylabel={\text{dokładność}},
+	x label style={at={(axis description cs:0.5,-0.1)},anchor=north},
+	y label style={at={(axis description cs:-0.12,.5)},rotate=90,anchor=south},
+	legend pos=south east ,legend cell align={left},
+}}
+
+\newcommand{\accplot}[1] {\addplot table [x=Step, y=Value, col sep=comma] {#1}; }
