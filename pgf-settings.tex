@@ -39,4 +39,19 @@
 	legend pos=south east ,legend cell align={left},
 }}
 
+\pgfplotsset{amdahl/.style={
+		cycle list name=tb, 
+		grid=both,
+		grid style={solid,gray!30!white},
+		axis lines=middle,
+		xlabel={Rdzenie procesora},
+		ylabel={\text{Przyspieszenie}},
+		x label style={at={(axis description cs:0.5,-0.1)},anchor=north},
+		y label style={at={(axis description cs:-0.12,.5)},rotate=90,anchor=south},
+		legend pos=south east ,legend cell align={left},
+		log basis x=2
+}}
+
+
 \newcommand{\accplot}[1] {\addplot table [x=Step, y=Value, col sep=comma] {#1}; }
+\newcommand{\amdahlplot}[1] {\addplot table [x=Rdzenie procesora, y=Przyspieszenie, col sep=comma] {#1}; }
